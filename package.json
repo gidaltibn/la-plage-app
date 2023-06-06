@@ -9,10 +9,32 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    "expo": "~48.0.11",
+    "@react-native-community/checkbox": "^0.5.15",
+    "@react-native-picker/picker": "2.4.2",
+    "@react-navigation/native": "^6.1.6",
+    "@react-navigation/native-stack": "^6.9.12",
+    "@reduxjs/toolkit": "^1.9.5",
+    "@rneui/themed": "^4.0.0-rc.7",
+    "axios": "^1.4.0",
+    "expo": "^46.0.21",
+    "expo-image-manipulator": "~10.4.0",
+    "expo-image-picker": "~13.3.1",
+    "expo-random": "~12.3.0",
     "expo-status-bar": "~1.4.4",
-    "react": "18.2.0",
-    "react-native": "0.71.6"
+    "react": "18.0.0",
+    "react-native": "0.69.9",
+    "react-native-bcrypt": "^2.4.0",
+    "react-native-counter-input": "^2.0.0",
+    "react-native-get-random-values": "^1.8.0",
+    "react-native-mask-text": "^0.13.2",
+    "react-native-paper": "^5.7.0",
+    "react-native-prompt-android": "^1.1.0",
+    "react-native-safe-area-context": "4.3.1",
+    "react-native-screens": "~3.15.0",
+    "react-native-securerandom": "^1.0.1",
+    "react-native-swiper-flatlist": "^3.2.2",
+    "react-redux": "^8.0.5",
+    "redux": "^4.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
