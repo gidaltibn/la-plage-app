@@ -7,6 +7,7 @@ import person from '../../assets/icons/person.png';
 import logo from '../../assets/icons/logo.png';
 import { useNavigation } from '@react-navigation/native';
 import api from '../../services/api';
+import { CommonActions } from '@react-navigation/native';
 
 export default function Info(params) {
     const usuario = params.route.params;
@@ -85,7 +86,12 @@ export default function Info(params) {
                         <Text style={styles.optionText}>Minha sacola de compras</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.optionContainer} onPress={
-                        () => navigation.reset()
+                        () => {
+                            navigation.dispatch(CommonActions.reset({
+                                index: 0, // Define o índice da tela ativa na nova pilha
+                                routes: [{ name: 'Home' }], // Define as telas da nova pilha
+                            }));
+                        }
                     }>
                         <Text style={styles.optionText}>Sair</Text>
                     </TouchableOpacity>

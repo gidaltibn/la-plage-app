@@ -79,7 +79,7 @@ export default function Auth(params) {
                         <TextInput style={styles.textInput} placeholder='Senha' secureTextEntry={true} onChangeText={(text) => {setPassword(text);}} />
                     </View>
                     <View>
-                        <TouchableOpacity><Text style={styles.textEsqCad} >Recuperar senha</Text></TouchableOpacity>
+                        <TouchableOpacity onPress={() => navigation.navigate("RecuperarSenha")}><Text style={styles.textEsqCad} >Recuperar senha</Text></TouchableOpacity>
                         <TouchableOpacity onPress={() => navigation.navigate("Cadastro")}><Text style={styles.textEsqCad} >Criar minha conta</Text></TouchableOpacity>
                     </View>
                     <View>
