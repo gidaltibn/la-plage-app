@@ -16,6 +16,7 @@ import Notifications from "../screens/Notifications";
 import Info from "../screens/Info";
 import MeusEnderecos from "../screens/MeusEnderecos";
 import MeusPedidos from "../screens/MeusPedidos";
+import RecuperarSenha from "../screens/RecuperarSenha";
 
 const Stack = createNativeStackNavigator();
 
@@ -100,6 +101,11 @@ export default function AppStack() {
             <Stack.Screen
                 name="MeusPedidos"
                 component={MeusPedidos}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen
+                name="RecuperarSenha"
+                component={RecuperarSenha}
                 options={{ headerShown: false }}
             />
         </Stack.Navigator>
