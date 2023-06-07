@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Dimensions, StyleSheet, Text, View, FlatList, TouchableOpacity, Image, Modal, TextInput, ScrollView, Alert } from 'react-native';
+import { Linking, Dimensions, StyleSheet, Text, View, FlatList, TouchableOpacity, Image, Modal, TextInput, ScrollView, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import logo from '../../assets/icons/logo.png';
 import api from '../../services/api';
@@ -12,8 +12,11 @@ export default function MeusPedidos(params) {
     const usuario = params.route.params;
     const [loading, setLoading] = useState(true);
     const [orders, setOrders] = useState([]);
+    const [modalVisible, setModalVisible] = useState(false);
+    const [link, setLink] = useState();
 
     const renderItem = ({ item }) => {
+        // setLink(item.linkPagamento);
         function getMonthName(month) {
             const monthNames = [
                 'Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun',
@@ -32,14 +35,18 @@ export default function MeusPedidos(params) {
         const month = getMonthName(date.getMonth());
         const year = date.getFullYear();
         const dateString = `${weekday}, ${date.getDate()} de ${month} de ${year}`;
-        console.log(dateString);
+        console.log(item);
 
         return (
-            <View style={styles.orderContainer}>
-                <Text style={styles.orderNumber}>Número do Pedido: {item.id}</Text>
-                <Text style={styles.orderStatus}>Status: {item.statusDaCompra}</Text>
-                <Text style={styles.estimatedDelivery}>Data do pedido: {dateString}</Text>
-            </View>
+            <TouchableOpacity onPress={()=>setModalVisible(true)}>
+                <View style={styles.orderContainer}>
+                    <Text style={styles.orderNumber}>Número do Pedido: {item.id}</Text>
+                    <Text style={styles.orderStatus}>Status: {item.statusDaCompra}</Text>
+                    <Text style={styles.estimatedDelivery}>Data do pedido: {dateString}</Text>
+                    <Text style={styles.estimatedDelivery}>Link para pagamento:</Text>
+                    <Text style={styles.link} onPress={()=>Linking.openURL(item.linkPagamento)}>{item.linkPagamento}</Text>
+                </View>
+            </TouchableOpacity>
         );
     };
 
@@ -110,6 +117,10 @@ const styles = StyleSheet.create({
     },
     orderStatus: {},
     estimatedDelivery: {},
+    link:{
+        color: "blue",
+        fontWeight: 'bold',
+    },
     cabecalho: {
         width: "100%",
         height: "6%",
