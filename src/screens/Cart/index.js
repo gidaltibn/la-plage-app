@@ -174,13 +174,13 @@ export default function Cart(params) {
         return (
             <View style={styles.container}>
                 <View style={styles.cabecalho}>
-                    <TouchableOpacity style={styles.houseContainer} onPress={() => navigation.navigate('Home')}>
-                        <Image resizeMode='contain' source={house} style={styles.houseIcone} />
-                    </TouchableOpacity>
+                    <View style={styles.houseContainer} >
+                        
+                    </View>
                     <View style={styles.logoContainer}>
                         <Image resizeMode='contain' source={logo} style={styles.logoIcone} />
                     </View>
-                    <TouchableOpacity style={styles.favoritosContainer}>
+                    <TouchableOpacity style={styles.favoritosContainer} onPress={()=>Alert.alert("Ops!", "Essa opção ainda está em desenvolvimento.")}>
                         <Image resizeMode='contain' source={heart} style={styles.favoritoIcone} />
                     </TouchableOpacity>
                 </View>
